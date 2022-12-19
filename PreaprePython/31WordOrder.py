@@ -15,7 +15,7 @@ def order_words(words):
     for i in word_list.keys():
         word_number.append(len(word_list.get(i)))
     print(*word_number, sep=' ')
-
+    print(word_list)
 
 
 if __name__ == '__main__':
