@@ -8,15 +8,23 @@ def matrix_script(matrix, n, m, list_of_alphanumeric):
     new_string = ''
     for i in range(m):
         for j in range(n):
-            count = 0 
-            while n!= 0 and n != n and matrix[j][i] not in list_of_alphanumeric and matrix[j-1][i] in list_of_alphanumeric and matrix[j+1][i] in list_of_alphanumeric and count == 0:
+            count = 0
+            while count == 0 and j != 0 and matrix[j][i] not in list_of_alphanumeric and matrix[j-1][i] in list_of_alphanumeric:
                 new_string = new_string + ' '
                 count = 1
-            while matrix[j][i] in list_of_alphanumeric and count==0:
+            
+            count_new = 0
+            while matrix[j][i] in list_of_alphanumeric and count_new==0:
                 new_string = new_string + matrix[j][i]
-                count = 1
+                count_new = 1
+    add_string = ''
+    for i in range(n):
+        count_b = 0
+        while matrix[n-1-i][m-1] not in list_of_alphanumeric and count_b == 0:
+            add_string = matrix[n-1-i][m-1] + add_string
+            count_b = 1
+    new_string = new_string + add_string
     return print(new_string)
-
 
 if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
