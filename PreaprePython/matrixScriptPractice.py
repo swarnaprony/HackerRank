@@ -18,7 +18,7 @@ def matrix_script(matrix, n, m, list_of_alphanumeric):
 
     
 
-    for i in range(len(matrix_string)-1):
+    for i in range(len(matrix_string)):
         count = 0 
         while i> int(alpha_numeric_index[-1]) and count == 0:
             new_string = new_string + matrix_string[i]
