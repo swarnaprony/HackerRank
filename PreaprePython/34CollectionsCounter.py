@@ -1,25 +1,25 @@
-def collectionsCounter(shoe_number, shoe_price, customer_number, shoe_size):
-    total_money_earned = 0
-    print("Show all keys", shoe_price.keys())
+from collections import Counter
 
-    for key in shoe_price.keys():
-        if key in shoe_size:
-            print("Shoe price: ", shoe_price[key])
-            total_money_earned = total_money_earned + int(shoe_price[key])
-    print(shoe_number)
-    print(shoe_size)
-    print(customer_number)
-    print(shoe_price)
-    return print("total: ", total_money_earned)
+def collectionsCounter(shoe_number, shoe_price, customer_number, shoe_size):
+    available_shoes = Counter(shoe_size)
+    total_price = 0
+
+    for i in shoe_price:
+        if i[0] in available_shoes.keys():
+            if available_shoes[i[0]] >=1:
+                available_shoes[i[0]] = available_shoes[i[0]] - 1
+                total_price = total_price + int(i[1])
+    return total_price
+
 
 if __name__ == '__main__':
-    shoe_number = int(input("Number of shoes: "))
-    shoe_size = input("Available shoe sizes: ").split()
-    customer_number = input("Number of customers: ")
-    shoe_price = {}
+    shoe_number = int(input())
+    shoe_size = input().split()
+    customer_number = input()
+    shoe_price = []
     for i in range(int(customer_number)):
-        j = input("Price per size: ").split()
-        shoe_price[j[0]] = j[1]
+        j = input().split()
+        shoe_price.append((j[0],j[1]))
 
 
-    collectionsCounter(shoe_number, shoe_price, customer_number, shoe_size)
+    print(collectionsCounter(shoe_number, shoe_price, customer_number, shoe_size))
