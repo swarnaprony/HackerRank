@@ -10,9 +10,9 @@ def matrix_script(matrix, n, m, list_of_alphanumeric):
         for j in range(n):
             count = 0
             while count == 0 and j != 0 and matrix[j][i] not in list_of_alphanumeric and matrix[j-1][i] in list_of_alphanumeric:
-                new_string = new_string + ' '
+                new_string = new_string + ''
                 count = 1
-            
+
             count_new = 0
             while matrix[j][i] in list_of_alphanumeric and count_new==0:
                 new_string = new_string + matrix[j][i]
